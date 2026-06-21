@@ -131,15 +131,15 @@ def update_github_file(content: str) -> bool:
 def send_channel_notification(ip_count: int):
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     message = (
-        f"✅ **مخزن ایپی تمیز اپدیت شد!**\n\n"
-        f"📁 تعداد ایپی‌ها: **{ip_count}**\n\n"
+        f"✅ <b>مخزن ایپی تمیز اپدیت شد!</b>\n\n"
+        f"📁 تعداد ایپی‌ها: <b>{ip_count}</b>\n\n"
         f"🔄 ایپی‌هاتونو اپدیت کنید!\n\n"
         f"@LILSIB\n@Red_Sonic_pAnEL"
     )
     payload = {
         "chat_id": CHANNEL_ID,
         "text": message,
-        "parse_mode": "Markdown"
+        "parse_mode": "HTML"
     }
     requests.post(url, json=payload)
 
